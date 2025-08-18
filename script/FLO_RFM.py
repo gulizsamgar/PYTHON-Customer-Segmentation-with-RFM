@@ -7,10 +7,10 @@
 # İş Problemi (Business Problem)
 ###############################################################
 # FLO müşterilerini segmentlere ayırıp bu segmentlere göre pazarlama stratejileri belirlemek istiyor.
-# Buna yönelik olarak müşterilerin davranışları tanımlanacak ve bu davranış öbeklenmelerine göre gruplar oluşturulacak..
+# Buna yönelik olarak müşterilerin davranışları tanımlanacak ve bu davranış öbeklenmelerine göre gruplar oluşturulacak.
 
 ###############################################################
-# Veri Seti Hikayesi
+# Veri Seti Bilgisi
 ###############################################################
 
 # Veri seti son alışverişlerini 2020 - 2021 yıllarında OmniChannel(hem online hem offline alışveriş yapan) olarak yapan müşterilerin geçmiş alışveriş davranışlarından
@@ -57,9 +57,9 @@
 
 # GÖREV 5: Aksiyon zamanı!
            # 1. Segmentlerin recency, frequnecy ve monetary ortalamalarını inceleyiniz.
-           # 2. RFM analizi yardımı ile 2 case için ilgili profildeki müşterileri bulun ve müşteri id'lerini csv ye kaydediniz.
+           # 2. RFM analizi yardımı ile 2 case için ilgili profildeki müşterileri bulun ve müşteri id'lerini csv'ye kaydediniz.
                    # a. FLO bünyesine yeni bir kadın ayakkabı markası dahil ediyor. Dahil ettiği markanın ürün fiyatları genel müşteri tercihlerinin üstünde. Bu nedenle markanın
-                   # tanıtımı ve ürün satışları için ilgilenecek profildeki müşterilerle özel olarak iletişime geçeilmek isteniliyor. Sadık müşterilerinden(champions,loyal_customers),
+                   # tanıtımı ve ürün satışları için ilgilenecek profildeki müşterilerle özel olarak iletişime geçilmek isteniliyor. Sadık müşterilerinden(champions,loyal_customers),
                    # ortalama 250 TL üzeri ve kadın kategorisinden alışveriş yapan kişiler özel olarak iletişim kuralacak müşteriler. Bu müşterilerin id numaralarını csv dosyasına
                    # yeni_marka_hedef_müşteri_id.cvs olarak kaydediniz.
                    # b. Erkek ve Çoçuk ürünlerinde %40'a yakın indirim planlanmaktadır. Bu indirimle ilgili kategorilerle ilgilenen geçmişte iyi müşteri olan ama uzun süredir
@@ -137,12 +137,12 @@ def data_prep(dataframe):
 # GÖREV 2: RFM Metriklerinin Hesaplanması
 ###############################################################
 
-# Veri setindeki en son alışverişin yapıldığı tarihten 2 gün sonrasını analiz tarihi
+# 1. Veri setindeki en son alışverişin yapıldığı tarihten 2 gün sonrasını analiz tarihi
 df["last_order_date"].max() # 2021-05-30
 analysis_date = dt.datetime(2021,6,1)
 
 
-# customer_id, recency, frequnecy ve monetary değerlerinin yer aldığı yeni bir rfm dataframe
+# 2. customer_id, recency, frequnecy ve monetary değerlerinin yer aldığı yeni bir rfm dataframe
 rfm = pd.DataFrame()
 rfm["customer_id"] = df["master_id"]
 rfm["recency"] = (analysis_date - df["last_order_date"]).astype('timedelta64[D]')
@@ -155,7 +155,7 @@ rfm.head()
 # GÖREV 3: RF ve RFM Skorlarının Hesaplanması (Calculating RF and RFM Scores)
 ###############################################################
 
-#  Recency, Frequency ve Monetary metriklerini qcut yardımı ile 1-5 arasında skorlara çevrilmesi ve
+# 1. Recency, Frequency ve Monetary metriklerini qcut yardımı ile 1-5 arasında skorlara çevrilmesi ve
 # Bu skorları recency_score, frequency_score ve monetary_score olarak kaydedilmesi
 rfm["recency_score"] = pd.qcut(rfm['recency'], 5, labels=[5, 4, 3, 2, 1])
 rfm["frequency_score"] = pd.qcut(rfm['frequency'].rank(method="first"), 5, labels=[1, 2, 3, 4, 5])
@@ -164,7 +164,7 @@ rfm["monetary_score"] = pd.qcut(rfm['monetary'], 5, labels=[1, 2, 3, 4, 5])
 rfm.head()
 
 
-# recency_score ve frequency_score’u tek bir değişken olarak ifade edilmesi ve RF_SCORE olarak kaydedilmesi
+# 2. recency_score ve frequency_score’u tek bir değişken olarak ifade edilmesi ve RF_SCORE olarak kaydedilmesi
 rfm["RF_SCORE"] = (rfm['recency_score'].astype(str) + rfm['frequency_score'].astype(str))
 
 
@@ -177,7 +177,7 @@ rfm.head()
 # GÖREV 4: RF Skorlarının Segment Olarak Tanımlanması
 ###############################################################
 
-# Oluşturulan RFM skorların daha açıklanabilir olması için segment tanımlama ve  tanımlanan seg_map yardımı ile RF_SCORE'u segmentlere çevirme
+# 1. Oluşturulan RFM skorların daha açıklanabilir olması için segment tanımlama ve  tanımlanan seg_map yardımı ile RF_SCORE'u segmentlere çevirme
 seg_map = {
     r'[1-2][1-2]': 'hibernating',
     r'[1-2][3-4]': 'at_Risk',
@@ -241,7 +241,7 @@ cust_ids.to_csv("indirim_hedef_müşteri_ids.csv", index=False)
 
 
 ###############################################################
-# BONUS
+# BONUS: Tüm süreci fonksiyonlaştırınız.
 ###############################################################
 
 def create_rfm(dataframe):
