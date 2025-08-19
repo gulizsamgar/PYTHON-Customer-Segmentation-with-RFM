@@ -61,7 +61,7 @@ Proje aşağıdaki ana görevlerden oluşmaktadır:
 Kodları çalıştırmak için Python 3.x yüklü bir ortamda `.py` dosyasını kullanabilirsiniz.
 
 - Gerekli kütüphaneleri içe aktarın.
-- Veri setini (`flo_data_20k.csv`) doğru dosya yolunu belirterek yükleyin.
+- Veri setini **[`flo_data_20k.csv`](https://github.com/gulizsamgar/PYTHON-Customer-Segmentation-with-RFM/blob/0541aa6d4adfb0224e6d1f5b4470ef061f1bddae/dataset/flo_data_20k.csv)** doğru dosya yolunu belirterek yükleyin.
 - Her bir veri seti bölümündeki kod hücrelerini sırasıyla çalıştırarak veri hazırlığı, RFM metrikleri hesaplama, skorlama, segmentasyon ve içgörüler adımlarını takip edin.
 - Kod çıktılarındaki analizleri ve sonuçları inceleyin.
 - Markdown hücrelerindeki açıklamaları okuyarak yapılan işlemlerin amacını ve sonuçlarını anlayın.
@@ -71,7 +71,7 @@ Kodları çalıştırmak için Python 3.x yüklü bir ortamda `.py` dosyasını 
 
 ## Detaylı Açıklamalar
 
-Her görevin detaylı açıklamaları ve kod çıktıları için proje klasöründeki **[`Jupyter Not Defteri dosyasına (.ipynb)`]((https://github.com/gulizsamgar/PYTHON-Exploratory-Data-Analysis-EDA-/blob/04ea6692dd65f2c65794def2e0e3e914ffe6521a/Python_exploratory_data_analysis_(EDA).ipynb))** göz atabilirsiniz.
+Her görevin detaylı açıklamaları ve kod çıktıları için proje klasöründeki **[`Jupyter Not Defteri dosyasına (.ipynb)`](https://github.com/gulizsamgar/PYTHON-Exploratory-Data-Analysis-EDA-/blob/04ea6692dd65f2c65794def2e0e3e914ffe6521a/Python_exploratory_data_analysis_(EDA).ipynb)** göz atabilirsiniz.
 
 ---
 
