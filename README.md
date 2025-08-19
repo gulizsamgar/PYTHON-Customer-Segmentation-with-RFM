@@ -2,7 +2,7 @@
 
 ## Projeye Genel Bakış
 
-**Komut Dosyaları:** [FLO_RFM_analysis](https://github.com/gulizsamgar/PYTHON-Customer-Segmentation-with-RFM/blob/b13da35dcf13c4fac476119a0e5590d87592b464/script/FLO_RFM_analysis.py)
+**Komut Dosyaları:** [`FLO_RFM_analysis`](https://github.com/gulizsamgar/PYTHON-Customer-Segmentation-with-RFM/blob/b13da35dcf13c4fac476119a0e5590d87592b464/script/FLO_RFM_analysis.py)
 
 **Hedef:** Bu projenin temel hedefi, FLO'nun müşteri veri seti üzerinde RFM (Recency, Frequency, Monetary) analizi yaparak müşterileri anlamlı segmentlere ayırmak ve bu segmentlere yönelik hedefli pazarlama stratejileri geliştirmek için eyleme dönüştürülebilir içgörüler elde etmektir.
 
@@ -71,7 +71,7 @@ Kodları çalıştırmak için Python 3.x yüklü bir ortamda `.py` dosyasını 
 
 ## Detaylı Açıklamalar
 
-Her görevin detaylı açıklamaları ve kod çıktıları için proje klasöründeki **[`Jupyter Not Defteri dosyasına (.ipynb)`](https://github.com/gulizsamgar/PYTHON-Exploratory-Data-Analysis-EDA-/blob/04ea6692dd65f2c65794def2e0e3e914ffe6521a/Python_exploratory_data_analysis_(EDA).ipynb)** göz atabilirsiniz.
+Her görevin detaylı açıklamaları ve kod çıktıları için proje klasöründeki **[`Jupyter Not Defteri dosyasına (.ipynb)`](FLO_RFM_analysis.ipynb)** göz atabilirsiniz.
 
 ---
 
